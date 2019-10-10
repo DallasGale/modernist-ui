@@ -60,19 +60,29 @@
       <label class="label" for="radio-accent">Accent
         <input name="siteMode" id="radio-accent" type="radio" value="accent" />
       </label>
-      <label class="label" for="radio-negative">Negative
-        <input name="siteMode" id="radio-negative" type="radio" value="negative" />
+      <label class="label" for="radio-dark">dark
+        <input name="siteMode" id="radio-dark" type="radio" value="dark" />
       </label>
 
-      <label class="label" for="radio-positive">Positive
-        <input name="siteMode" id="radio-positive" type="radio" value="positive" />
+      <label class="label" for="radio-light">light
+        <input name="siteMode" id="radio-light" type="radio" value="light" />
       </label>
     </form>
 
-    <h3>UI Primary Color Picker</h3>
-    <input class="color-input" name="siteMode" id="color-picker" type="color" value="#ffffff" />
+    <h3>Theme Color Picker</h3>
 
-    <input type="text" value="" class="hex" id="hex" />
+    <h4>Accent</h4>
+    <input class="color-input" name="siteMode" id="accent-color-picker" type="color" value="#ffffff" />
+    <input type="text" value="" class="hex" id="accent-hex" />
+
+    <h4>Dark</h4>
+    <input class="color-input" name="siteMode" id="dark-color-picker" type="color" value="#ffffff" />
+    <input type="text" value="" class="hex" id="dark-hex" />
+
+    <h4>Light</h4>
+    <input class="color-input" name="siteMode" id="light-color-picker" type="color" value="#ffffff" />
+    <input type="text" value="" class="hex" id="light-hex" />
+
   </div>
 
   <script src="./src/modernist-ui.js" type="module"></script>

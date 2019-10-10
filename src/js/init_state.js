@@ -33,11 +33,11 @@ export const modeTypes = {
 	accent: {
 		name: 'accent',
 	},
-	positive: {
-		name: 'positive',
+	light: {
+		name: 'light',
 	},
-	negative: {
-		name: 'negative',
+	dark: {
+		name: 'dark',
 	}
 }
 
@@ -60,16 +60,14 @@ function setBackgroundColor() {
 		return siteTheme.accent
 	}
 
-	if (body.getAttribute('mode') === 'positive') {
+	if (body.getAttribute('mode') === 'light') {
 		return colors.light
 	}
 
-	if (body.getAttribute('mode') === 'negative') {
+	if (body.getAttribute('mode') === 'dark') {
 		return colors.dark
 	}
 }
-
-
 
 
 // ? Obseve <body /> for 'mode' attr. changes and then re-render the page with Mutation Observer.
@@ -81,7 +79,6 @@ function handleBodyObserver() {
 }
 ChangeObserver(body, () => handleBodyObserver())
 
-
 function handleHeaderBackground() {
 	body.style.background = setBackgroundColor()
 	header.style.color = setBackgroundColor()
@@ -89,14 +86,14 @@ function handleHeaderBackground() {
 }
 ChangeObserver(body, () => handleHeaderBackground())
 
-
 // ? Obseve <input type="color" /> for 'value' attr. changes and then update the 'accent' color
-// ! Private development only... this is not a feature for public
-const picker = document.getElementById('color-picker')
+if (DEVELOPING_PROJECT) {
+	const picker = document.getElementById('accent-color-picker')
 
-ChangeObserver(picker, picker.addEventListener('change', () => {
-	body.setAttribute('dev-accent', picker.value)
-	body.style.background = picker.value
-})
-)
+	ChangeObserver(picker, picker.addEventListener('change', () => {
+		body.setAttribute('dev-accent', picker.value)
+		body.style.background = picker.value
+	})
+	)
+}
 

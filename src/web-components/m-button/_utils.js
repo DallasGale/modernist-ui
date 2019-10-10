@@ -8,8 +8,8 @@ import { colorPicker } from '../../js/helpers'
  */
 export const setButtonBackground = (buttonMode, accentColor) => {
 	if (buttonMode === modeTypes.accent.name) return accentColor
-	if (buttonMode === modeTypes.negative.name) return colors.dark
-	if (buttonMode === modeTypes.positive.name) return colors.light
+	if (buttonMode === modeTypes.dark.name) return colors.dark
+	if (buttonMode === modeTypes.light.name) return colors.light
 }
 
 /**
@@ -33,12 +33,12 @@ export const setButtonBorderColor = (siteMode, buttonMode, accentColor) => {
 
 
 	// * A 'light' background and button.
-	if (siteMode === 'positive' && buttonMode === 'positive') {
+	if (siteMode === 'light' && buttonMode === 'light') {
 		const color = colorPicker(accentColor)
 		return color
 	}
 	// * A not a 'light' background but 'light' button.
-	if (siteMode !== 'positive' && buttonMode === 'positive') {
+	if (siteMode !== 'light' && buttonMode === 'light') {
 		const color = 'transparent'
 		return color
 	}
@@ -117,18 +117,18 @@ export const handleButtonFocusMouseOver = (el, root, accent, activeBackground, a
 		setButtonStyle(el, colorPicker(accent), accent, colorPicker(accent))
 	}
 
-	// * An 'ACCENT' background and 'POSITIVE' button.
-	if (root.getAttribute('mode') === 'accent' && el.getAttribute('mode') === 'positive') {
+	// * An 'ACCENT' background and 'light' button.
+	if (root.getAttribute('mode') === 'accent' && el.getAttribute('mode') === 'light') {
 		setButtonStyle(el, colors.dark, colors.light, colors.dark)
 	}
 
-	// * An 'ACCENT' background and 'NEGATIVE' button.
-	if (root.getAttribute('mode') === 'accent' && el.getAttribute('mode') === 'negative') {
+	// * An 'ACCENT' background and 'dark' button.
+	if (root.getAttribute('mode') === 'accent' && el.getAttribute('mode') === 'dark') {
 		setButtonStyle(el, activeBackground, colors.dark, 'transparent')
 	}
 
-	// * A 'POSITIVE' background and 'ACCENT' Button.
-	if (root.getAttribute('mode') === 'positive' && el.getAttribute('mode') === 'accent') {
+	// * A 'light' background and 'ACCENT' Button.
+	if (root.getAttribute('mode') === 'light' && el.getAttribute('mode') === 'accent') {
 		let button = el.shadowRoot.querySelector('button')
 		// ? If accent is too light make background dark
 		if (button.style.color === '#fff' || button.style.color === 'rgb(255, 255, 255)') {
@@ -138,20 +138,20 @@ export const handleButtonFocusMouseOver = (el, root, accent, activeBackground, a
 		}
 	}
 
-	// * A 'POSITIVE' background and 'NEGATIVE' Button.
-	if (root.getAttribute('mode') === 'positive' && el.getAttribute('mode') === 'negative') {
+	// * A 'light' background and 'dark' Button.
+	if (root.getAttribute('mode') === 'light' && el.getAttribute('mode') === 'dark') {
 		setButtonStyle(el, colors.light, colors.dark, colors.dark)
 	}
 
-	// * A 'POSITIVE' background and 'POSITIVE' Button.
-	if (root.getAttribute('mode') === 'positive' && el.getAttribute('mode') === 'positive') {
+	// * A 'light' background and 'light' Button.
+	if (root.getAttribute('mode') === 'light' && el.getAttribute('mode') === 'light') {
 		buttonShadowRoot.style.borderColor = colors.dark
 		buttonShadowRoot.style.background = colors.dark
 		buttonShadowRoot.style.color = colors.light
 	}
 
-	// * A 'NEGATIVE' background and 'ACCENT' Button.
-	if (root.getAttribute('mode') === 'negative' && el.getAttribute('mode') === 'accent') {
+	// * A 'dark' background and 'ACCENT' Button.
+	if (root.getAttribute('mode') === 'dark' && el.getAttribute('mode') === 'accent') {
 		let button = el.shadowRoot.querySelector('button')
 		// ? If accent is too light make background dark
 		if (button.style.color === '#000' || button.style.color === 'rgb(0, 0, 0)') {
@@ -165,13 +165,13 @@ export const handleButtonFocusMouseOver = (el, root, accent, activeBackground, a
 		}
 	}
 
-	// * A 'NEGATIVE' background and 'NEGATIVE' buttons.
-	if (root.getAttribute('mode') === 'negative' && el.getAttribute('mode') === 'negative') {
+	// * A 'dark' background and 'dark' buttons.
+	if (root.getAttribute('mode') === 'dark' && el.getAttribute('mode') === 'dark') {
 		setButtonStyle(el, colors.light, colors.dark, colors.light)
 	}
 
-	// * A 'NEGATIVE' background and 'POSITIVE' buttons.
-	if (root.getAttribute('mode') === 'negative' && el.getAttribute('mode') === 'positive') {
+	// * A 'dark' background and 'light' buttons.
+	if (root.getAttribute('mode') === 'dark' && el.getAttribute('mode') === 'light') {
 		buttonShadowRoot.style.borderColor = colors.light
 		buttonShadowRoot.style.background = colors.dark
 		buttonShadowRoot.style.color = colors.light
@@ -197,42 +197,42 @@ export const handleButtonFocusMouseOut = (el, root, accent) => {
 		buttonShadowRoot.style.borderColor = colorPicker(buttonShadowRoot.style.background)
 	}
 
-	// * A 'ACCENT' background and 'NEGATIVE' Button.
-	if (root.getAttribute('mode') === 'accent' && el.getAttribute('mode') === 'negative') {
+	// * A 'ACCENT' background and 'dark' Button.
+	if (root.getAttribute('mode') === 'accent' && el.getAttribute('mode') === 'dark') {
 		setButtonStyle(el, colors.dark, colors.light, colors.dark)
 	}
 
-	// * An 'ACCENT' background and 'POSITIVE' button.
-	if (root.getAttribute('mode') === 'accent' && el.getAttribute('mode') === 'positive') {
+	// * An 'ACCENT' background and 'light' button.
+	if (root.getAttribute('mode') === 'accent' && el.getAttribute('mode') === 'light') {
 		setButtonStyle(el, colors.light, colors.dark, 'transparent')
 	}
 
-	// * A 'POSITIVE' background and 'POSITIVE' button.
-	if (root.getAttribute('mode') === 'positive' && el.getAttribute('mode') === 'positive') {
+	// * A 'light' background and 'light' button.
+	if (root.getAttribute('mode') === 'light' && el.getAttribute('mode') === 'light') {
 		setButtonStyle(el, colors.light, colors.dark, colors.dark)
 	}
 
-	// * A 'POSITIVE' background and 'NEGATIVE' button.
-	if (root.getAttribute('mode') === 'positive' && el.getAttribute('mode') === 'negative') {
+	// * A 'light' background and 'dark' button.
+	if (root.getAttribute('mode') === 'light' && el.getAttribute('mode') === 'dark') {
 		setButtonStyle(el, colors.dark, colors.light, colors.dark)
 	}
 
-	// * A 'POSITIVE' background and 'ACCENT' Button.
-	if (root.getAttribute('mode') === 'positive' && el.getAttribute('mode') === 'accent') {
+	// * A 'light' background and 'ACCENT' Button.
+	if (root.getAttribute('mode') === 'light' && el.getAttribute('mode') === 'accent') {
 		setAccentButtonStyleReset(buttonShadowRoot, accent, accent)
 	}
 
-	// * A 'NEGATIVE' background and 'POSITIVE' button.
-	if (root.getAttribute('mode') === 'negative' && el.getAttribute('mode') === 'positive') {
+	// * A 'dark' background and 'light' button.
+	if (root.getAttribute('mode') === 'dark' && el.getAttribute('mode') === 'light') {
 		setButtonStyle(el, colors.light, colors.dark, colors.light)
 	}
-	// * A 'NEGATIVE' background and 'NEGATIVE' button.
-	if (root.getAttribute('mode') === 'negative' && el.getAttribute('mode') === 'negative') {
+	// * A 'dark' background and 'dark' button.
+	if (root.getAttribute('mode') === 'dark' && el.getAttribute('mode') === 'dark') {
 		setButtonStyle(el, colors.dark, colors.light, colors.light)
 	}
 
-	// * A 'NEGATIVE' background and 'ACCENT' Button.
-	if (root.getAttribute('mode') === 'negative' && el.getAttribute('mode') === 'accent') {
+	// * A 'dark' background and 'ACCENT' Button.
+	if (root.getAttribute('mode') === 'dark' && el.getAttribute('mode') === 'accent') {
 		setAccentButtonStyleReset(buttonShadowRoot, accent, accent)
 		buttonShadowRoot.style.borderColor = accent
 	}
@@ -262,36 +262,36 @@ export const setButtonBorderColorFromBodyMode = (root, el, shadowEl, siteTheme, 
 	}
 
 
-	// * Set 'dark' border to 'negative' button.
-	if (root.getAttribute('mode') === 'accent' && el.getAttribute('mode') === 'negative') {
+	// * Set 'dark' border to 'dark' button.
+	if (root.getAttribute('mode') === 'accent' && el.getAttribute('mode') === 'dark') {
 		shadowEl.style.borderColor = colors.dark
 	}
 
-	// * Set 'dark' border to positive button.
-	if (root.getAttribute('mode') === 'accent' && el.getAttribute('mode') === 'positive') {
+	// * Set 'dark' border to light button.
+	if (root.getAttribute('mode') === 'accent' && el.getAttribute('mode') === 'light') {
 		shadowEl.style.borderColor = 'transparent'
 	}
 
-	// ! <body mode='NEGATIVE'>
-	// * Set 'light' border to 'negative' button.
-	if (root.getAttribute('mode') === 'negative' && el.getAttribute('mode') === 'negative') {
+	// ! <body mode='dark'>
+	// * Set 'light' border to 'dark' button.
+	if (root.getAttribute('mode') === 'dark' && el.getAttribute('mode') === 'dark') {
 		shadowEl.style.borderColor = colors.light
 	}
-	// * Set 'light' border to 'positive' button.
-	if (root.getAttribute('mode') === 'negative' && el.getAttribute('mode') === 'positive') {
+	// * Set 'light' border to 'light' button.
+	if (root.getAttribute('mode') === 'dark' && el.getAttribute('mode') === 'light') {
 		shadowEl.style.borderColor = colors.light
 	}
 
 
-	// ! <body mode='POSITIVE'>
-	// * Set 'dark' border to 'positive' button.
-	if (root.getAttribute('mode') === 'positive' && el.getAttribute('mode') === 'positive') {
+	// ! <body mode='light'>
+	// * Set 'dark' border to 'light' button.
+	if (root.getAttribute('mode') === 'light' && el.getAttribute('mode') === 'light') {
 		shadowEl.style.borderColor = colors.dark
 	}
 
 
-	// * Set 'dark' border to 'negative' button.
-	if (root.getAttribute('mode') === 'positive' && el.getAttribute('mode') === 'negative') {
+	// * Set 'dark' border to 'dark' button.
+	if (root.getAttribute('mode') === 'light' && el.getAttribute('mode') === 'dark') {
 		shadowEl.style.borderColor = colors.dark
 	}
 }

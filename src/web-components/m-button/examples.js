@@ -19,7 +19,7 @@ const examples = `
   <h2>Light Mode</h2>
 
   <code>&#60;modern-button mode="light" type"cta" size="auto"></code>
-  <m-button mode="positive">
+  <m-button mode="light">
     Light
   </m-button>
 </div>
@@ -27,7 +27,7 @@ const examples = `
 <div class='content'>
   <h2>Dark Mode</h2>
   <code>&#60;modern-button mode="dark" type"cta" size="half"></code>
-  <m-button mode="negative">
+  <m-button mode="dark">
     Dark
   </m-button>
 </div>

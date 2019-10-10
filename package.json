@@ -1,8 +1,8 @@
 {
-  "name": "modern-ui",
-  "version": "1.0.0",
+  "name": "modernist-ui",
+  "version": "1.0.3",
   "author": "dallasgale.digital@gmail.com",
-  "description": "An opinionated web-component based UI library with 0 dependencies.",
+  "description": "WORK IN PROGRESS!",
   "devDependencies": {
     "cssnano": "^4.1.10",
     "eslint": "^6.1.0",
