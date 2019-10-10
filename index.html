@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MODERNIST UI</title>
+  <link rel="stylesheet" href="./index.scss">
+  <!-- <link rel="stylesheet" href="./src/sass/app.scss"> -->
+
+  <!-- Google fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Comfortaa|Julius+Sans+One|Karla|Overpass|Poppins|Source+Sans+Pro&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header id="site-header" class="header"></header>
+
+  <main class="main">
+
+    <!-- Button  -->
+    <section id="buttons">
+      <article class="article intro" id="intro">
+        <div id="intro_markdown"></div>
+        <div id="intro_components"></div>
+      </article>
+    </section>
+
+    <!-- Carousel  -->
+    <section id="carousel"></section>
+
+    <!-- Dropdown  -->
+    <section id="dropdown"></section>
+
+    <!-- Form  -->
+    <section id="form"></section>
+
+    <!-- Grid  -->
+    <section id="grid"></section>
+
+    <!-- Header  -->
+    <section id="header"></section>
+
+    <!-- Lists  -->
+    <section id="lists"></section>
+
+    <!-- Modal  -->
+    <section id="modal"></section>
+
+    <!-- Navigation  -->
+    <section id="navigation"></section>
+  </main>
+
+  <!-- CONFIG. WIDGET -->
+  <div id="config-widget" class="config-widget">
+    <h3>Toggle UI Theme</h3>
+    <form>
+      <label class="label" for="radio-accent">Accent
+        <input name="siteMode" id="radio-accent" type="radio" value="accent" />
+      </label>
+      <label class="label" for="radio-negative">Negative
+        <input name="siteMode" id="radio-negative" type="radio" value="negative" />
+      </label>
+
+      <label class="label" for="radio-positive">Positive
+        <input name="siteMode" id="radio-positive" type="radio" value="positive" />
+      </label>
+    </form>
+
+    <h3>UI Primary Color Picker</h3>
+    <input class="color-input" name="siteMode" id="color-picker" type="color" value="#ffffff" />
+
+    <input type="text" value="" class="hex" id="hex" />
+  </div>
+
+  <script src="./src/modernist-ui.js" type="module"></script>
+</body>
+
+</html>
